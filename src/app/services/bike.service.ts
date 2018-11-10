@@ -21,4 +21,15 @@ export class BikeService {
     return this.http.get('/server/api/v1/bikes');
   }
 
+  getBike(id:number){
+    console.log('BikeService.getBike called');
+    return this.http.get('/server/api/v1/bikes/' + id);
+  }
+
+  createBikeRegistration(bike){
+    console.log('BikeService.createBikeRegistration called');
+    let body = JSON.stringify(bike);
+    return this.http.post('/server/api/v1/bikes', body, httpOptions);
+  }
+
 }
