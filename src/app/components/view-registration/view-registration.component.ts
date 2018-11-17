@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ViewRegistrationComponent implements OnInit {
 
   public bikeReg;
+  public myvalue=true;
 
   constructor(private bikeService: BikeService,
               private route: ActivatedRoute) { }
