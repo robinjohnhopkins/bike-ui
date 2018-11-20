@@ -16,16 +16,21 @@ export class BikeService {
     console.log('BikeService ctor');
    }
   
-  getBikes(){
+  getBikes() {
     console.log('BikeService.getBikes called');
-    return this.http.get('/server/api/v1/bikes');
+    let token = localStorage.getItem('access_token');
+    return this.http.get('/server/api/v1/bikes',
+      {headers: new HttpHeaders().set('Authorization', 'Bearer ' + token)}
+    );
   }
-
-  getBike(id:number){
+ 
+  getBike(id: number) {
     console.log('BikeService.getBike called');
-    return this.http.get('/server/api/v1/bikes/' + id);
+    let token = localStorage.getItem('access_token');
+    return this.http.get('/server/api/v1/bikes/' + id,
+      {headers: new HttpHeaders().set('Authorization', 'Bearer ' + token)}
+    );
   }
-
   createBikeRegistration(bike){
     console.log('BikeService.createBikeRegistration called');
     let body = JSON.stringify(bike);
